@@ -18,8 +18,8 @@ namespace QLQuanCafe.DAO
             private set { TableDAO.instance = value; }
         }
 
-        public static int TableWidth = 95;
-        public static int TableHeight = 95;
+        public static int TableWidth = 90;
+        public static int TableHeight = 90;
 
         private TableDAO() { }
 
@@ -37,11 +37,5 @@ namespace QLQuanCafe.DAO
 
             return tableList;
         }
-
-        public void SwitchTable(int id1, int id2)
-        {
-            DataProvider.Instance.ExecuteQuery("USP_SwitchTabel @idTable1 , @idTabel2", new object[] { id1, id2 });
-        }
-
     }
 }
