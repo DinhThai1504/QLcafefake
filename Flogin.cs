@@ -1,5 +1,4 @@
 ﻿using QLQuanCafe.DAO;
-using QLQuanCafe.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +20,13 @@ namespace QLQuanCafe
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            
+
             string userName = txbUserName.Text;
             string passWord = txbPassWord.Text;
             if (Login(userName, passWord))
             {
-                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
-                fTableManager f = new fTableManager(loginAccount);
+                fTableManager f = new fTableManager();
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -56,5 +56,7 @@ namespace QLQuanCafe
                 e.Cancel = true;
             }
         }
+        
+
     }
 }

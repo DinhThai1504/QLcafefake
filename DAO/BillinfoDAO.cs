@@ -19,7 +19,10 @@ namespace QLQuanCafe.DAO
 
         private BillinfoDAO() { }
 
-
+        public void DeleteBillinfoByFood(int id)
+        {
+            DataProvider.Instance.ExecuteQuery("delete dbo.Billinfo WHERE idFood = " + id);
+        }
         public List<Billinfo> GetListBillinfo(int id)
         {
             List<Billinfo> listBillinfo = new List<Billinfo>();
@@ -36,7 +39,6 @@ namespace QLQuanCafe.DAO
         public void InsertBillInfo(int idBill, int idFood, int count)
         {
             DataProvider.Instance.ExecuteNonQuery("USP_InsertBillInfo @idBill , @idFood , @count", new object[] { idBill, idFood, count });
-            
         }
     }
 }
